@@ -1,0 +1,80 @@
+<div class="hero-container">
+  <div class="copy-wrap">
+    <h4 class="small-headline">Don't let your friends dress poorly</h4>
+    <h2 class="main-headline">Invite Them & <br>Earn Rewards!</h2>
+    <p class="copy">Share your unique link via email, <br>Facebook, or Twitter and earn Kursed <br>rewards for each friend that signs up.</p>
+
+    <div class="share-link"><%= root_url %>?ref=<%= @user.referral_code %></div>
+
+    <div class="social-container">
+      <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Harrys" class="icon-fb" target="_blank">
+        <%= image_tag('/assets/refer/icon-fb.png', class: "icon"); %>
+      </a>
+      <% twitter_message = "Stoked on this new @Kursedapparel collection! I’m going to be wearing #streetwear for free." %>
+      <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="icon-tw" target="_blank">
+        <%= image_tag('/assets/refer/icon-tw.png', class: "icon"); %>
+      </a>
+    </div>
+  </div>
+</div>
+
+<%
+    referrals_count = @user.referrals.count
+
+stops = User::REFERRAL_STEPS
+
+found = nil
+
+stops.reverse_each { |stop|
+  if stop["count"] <= referrals_count and !found
+    stop["selected"] = true
+    found = stop
+  else
+    stop["selected"] = false
+  end
+}
+ %>
+
+<div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+  <div class="page-content">
+    <p class="callout brandon">Here's How It Works:</p>
+    <ul class="products clearfix">
+      <li class="title brandon"><p class="friends">Friends Joined</p><p class="rewards">Kursed's Product</p></li>
+      <% stops.each do |stop| %>
+        <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
+        <div class="circle"><%= stop["count"] %></div>
+        <div class="sep"></div>
+        <p><%= stop["html"].html_safe %></p>
+
+        <div class="tooltip">
+          <img src="<%= stop["image"] %>" height="254">
+        </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="progress">
+      <div class="mover">
+        <div class="bar clearfix"></div>
+      </div>
+    </div>
+
+    <%
+      words = ''
+      if referrals_count == 1
+        words = 'friend has'
+      elsif
+        words = 'friends have'
+      end
+    %>
+
+    <% if referrals_count == 0 %>
+      <p class="place brandon"><span>No</span> friends have joined...Yet!</p>
+    <% else %>
+      <p class="place brandon"><span><%= referrals_count %></span> <%= words %> joined</p>
+    <% end %>
+    <p class="check brandon">Keep checking</p>
+
+    <a class="policy brandon" href="/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</div>

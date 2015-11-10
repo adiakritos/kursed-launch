@@ -1,0 +1,21 @@
+<div class="hero-container">
+  <%= image_tag('/assets/home/hero-use.jpg', class: "hero-image") %>
+
+  <div class="form-wrap clearfix group <%= "ended" if Rails.application.config.ended %>">
+    <div class="from-wrap-inner">
+      <% if Rails.application.config.ended %>
+        <p class="thanks brandon">THANK YOU FOR PARTICIPATING<br>IN OUR PRE-LAUNCH.</p>
+        <p class="compiling brandon">WE ARE COMPILING REWARDS RIGHT NOW AND WILL EMAIL<br/>COUPON CODES TO ALL RECIPIENTS IN THE NEXT DAY OR TWO</p>
+        <p class="go-to brandon">In the meantime, head to  <a href="http://www.harrys.com/">WWW.HARRYS.COM</a></p>
+        <p class="again brandon">Thank You Again!</p>
+      <% else %>
+        <p class="key">K</p>
+        <p class="byline brandon">Be The First To Know</p>
+        <%= form_for @user, :url => { :action => "create"} do |f| %>
+          <%= f.text_field :email, :placeholder => "Enter Email", :class => "email-input brandon" %>
+          <input class="submit brandon" name="commit" type="submit" value="Reward Yourself" />
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
