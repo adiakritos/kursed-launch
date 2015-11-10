@@ -29342,3 +29342,264 @@ Connecting to database specified by database.yml
   [1m[35mAdminUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
   [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 22:55:50 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$6ZmoorMo5yEcUFqXCY8H3eIZbyi.v2iq9N7t1Hnrt9IpkYOvpo.4e"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 22:55:50 UTC +00:00]]
   [1m[35m (0.6ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (9.3ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (16.3ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.8ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (21.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:40:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$oJCbP4IpTT7sawpTr0urkOYz6KDh2.9X8iJYVa43SPln02bnjVIx."], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:40:03 UTC +00:00]]
+  [1m[35m (5.9ms)[0m  COMMIT
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (7.1ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:41:21 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$8rteUfE1e4Q2ncbRmukQeuuHP8npbtWeY2dqh6h5Q3xf2AFDjmWwK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:41:21 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (5045.3ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5038.3ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (7.3ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:41:47 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$Cgaze5OZI7ULm9gtqNcUaeTo0lTEc4sflrsmUdzh4dDJM5t.SHndi"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:41:47 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (7.1ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:41:56 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$ffmSQR2KWHxe/PnG2ArdYOwePxoJdACgn2ygqPpu.LjUmHaSmXIAC"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:41:56 UTC +00:00]]
+  [1m[35m (2.2ms)[0m  COMMIT
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 15:42:02 -0800
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 15:42:02 -0800
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Compiled normalize.css  (0ms)  (pid 49572)
+Compiled application.css  (134ms)  (pid 49572)
+Completed 200 OK in 164ms (Views: 157.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:42:08 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.4ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Tue, 10 Nov 2015 23:42:08 UTC +00:00], ["updated_at", Tue, 10 Nov 2015 23:42:08 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-10 23:42:08.880552' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '4c1418838e' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:42:08 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "4c1418838e"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:42:08 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (1.0ms)
+
+Sent mail to adiakritos@gmail.com (30023ms)
+Date: Tue, 10 Nov 2015 15:42:09 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564280d171b9_c1a43ff578b747d0522d@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=4c1418838e" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=4c1418838e</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=4c1418838e&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=4c1418838e&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30208ms
+
+Timeout::Error (execution expired):
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.7ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.3ms)

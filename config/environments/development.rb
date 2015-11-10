@@ -14,6 +14,20 @@ Prelaunchr::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  # mailer
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrilapp.com',
+    port:                 587,
+    domain:               'prelaunch.kursedapparal.com',
+    user_name:            'info@kursedapparel.com',
+    password:             'Lk3dRt03FC1KhbLXnq6FYw',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
+
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
@@ -42,8 +56,4 @@ Prelaunchr::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  # For mailer configs
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
 end

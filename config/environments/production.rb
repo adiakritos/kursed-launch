@@ -4,6 +4,19 @@ Prelaunchr::Application.configure do
   # Code is not reloaded between requests
   config.cache_classes = true
 
+  # mailer
+  config.action_mailer.default_url_options = { :host => 'prelaunch.kursedapparel.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrilapp.com',
+    port:                 587,
+    domain:               'prelaunch.kursedapparal.com',
+    user_name:            'info@kursedapparel.com',
+    password:             'Lk3dRt03FC1KhbLXnq6FYw',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -60,8 +73,6 @@ Prelaunchr::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  config.action_mailer.default_url_options = { :host => 'prelaunch.kursedapparel.com' }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
