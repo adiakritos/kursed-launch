@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserMailer < ActionMailer::Base
   default from: "Kursed Apparel <info@kursedapparel.com>"
 
