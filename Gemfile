@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3-p551"
 
 gem 'rails', '3.2.11'
 
@@ -39,7 +40,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+#gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
