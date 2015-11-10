@@ -29172,3 +29172,126 @@ Served asset /application.css - 200 OK (2ms)
 
 Started GET "/assets/home/hero-use.jpg" for 127.0.0.1 at 2015-11-10 00:09:14 -0800
 Served asset /home/hero-use.jpg - 200 OK (1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130126215239)
+Migrating to DeviseCreateAdminUsers (20130127063936)
+Migrating to CreateAdminNotes (20130127063939)
+Migrating to MoveAdminNotesToComments (20130127063940)
+Migrating to CreateDelayedJobs (20130227185712)
+Migrating to CreateIpAddresses (20130312045541)
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mAdminUser Exists (1.4ms)[0m  [1mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (5045.4ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5042.1ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (8.6ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 08:45:16 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$mU.oh5wNUNMToJ7.55.GwusSzeUFNtfFTdbwlq7NiG4EejS6h6t7i"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 08:45:16 UTC +00:00]]
+  [1m[35m (6.7ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130126215239)
+Migrating to DeviseCreateAdminUsers (20130127063936)
+Migrating to CreateAdminNotes (20130127063939)
+Migrating to MoveAdminNotesToComments (20130127063940)
+Migrating to CreateDelayedJobs (20130227185712)
+Migrating to CreateIpAddresses (20130312045541)
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mAdminUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 00:46:47 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+Compiled normalize.css  (0ms)  (pid 29994)
+Compiled application.css  (131ms)  (pid 29994)
+Completed 200 OK in 164ms (Views: 156.3ms | ActiveRecord: 1.4ms)
+Connecting to database specified by database.yml
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130126215239)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (17.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130126215239')
+  [1m[36m (3.5ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateAdminUsers (20130127063936)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (17.7ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'tech@harrys.com' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 08:47:14 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "tech@harrys.com"], ["encrypted_password", "$2a$10$7IK0FcBZcp7FESHlrJT7a.dwTcLgRq9W53BNnsm6D75oQrrjRiJv2"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 08:47:14 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063936')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdminNotes (20130127063939)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (16.0ms)[0m  [1mCREATE TABLE "admin_notes" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "admin_user_id" integer, "admin_user_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (6.5ms)[0m  CREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "admin_notes" ("resource_type", "resource_id")
+  [1m[36m (1.6ms)[0m  [1mCREATE INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id" ON "admin_notes" ("admin_user_type", "admin_user_id")[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063939')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to MoveAdminNotesToComments (20130127063940)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mDROP INDEX "index_admin_notes_on_admin_user_type_and_admin_user_id"[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "admin_notes" RENAME TO "active_admin_comments"
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "admin_notes_id_seq" RENAME TO "active_admin_comments_id_seq"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "active_admin_comments" RENAME COLUMN "admin_user_type" TO "author_type"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "active_admin_comments" RENAME COLUMN "admin_user_id" TO "author_id"[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "active_admin_comments" ADD COLUMN "namespace" character varying(255)
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36m (0.4ms)[0m  [1mUPDATE active_admin_comments SET namespace='admin'[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130127063940')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDelayedJobs (20130227185712)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (14.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (6.9ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130227185712')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateIpAddresses (20130312045541)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.9ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130312045541')[0m
+  [1m[35m (11.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 08:47:14 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$zfYSZKD69Gblq6S3qZdOsOm61f6dkBmx3nA7nLzB6UOgMMmG4vIem"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 08:47:14 UTC +00:00]]
+  [1m[35m (2.6ms)[0m  COMMIT
+Connecting to database specified by database.yml
