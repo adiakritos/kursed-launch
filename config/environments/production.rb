@@ -5,7 +5,8 @@ Prelaunchr::Application.configure do
   config.cache_classes = true
 
   # mailer
-  config.action_mailer.default_url_options = { :host => 'prelaunch.kursedapparel.com' }
+  config.action_mailer.perform_deliveries    = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.mandrillapp.com',
@@ -15,7 +16,6 @@ Prelaunchr::Application.configure do
     password:             'vYZYS0fPxHBacyrCXoFQgQ',
     authentication:       'plain',
     enable_starttls_auto: true  }
-
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
