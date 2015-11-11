@@ -8,11 +8,11 @@ Prelaunchr::Application.configure do
   config.action_mailer.default_url_options = { :host => 'prelaunch.kursedapparel.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mandrilapp.com',
+    address:              'smtp.mandrillapp.com',
     port:                 587,
     domain:               'prelaunch.kursedapparal.com',
-    user_name:            'info@kursedapparel.com',
-    password:             'Lk3dRt03FC1KhbLXnq6FYw',
+    user_name:            'Kursedapparel@yahoo.com',
+    password:             'vYZYS0fPxHBacyrCXoFQgQ',
     authentication:       'plain',
     enable_starttls_auto: true  }
 

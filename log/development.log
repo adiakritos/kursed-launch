@@ -29603,3 +29603,1261 @@ Timeout::Error (execution expired):
   Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.7ms)
   Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
   Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 15:45:40 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:49:11 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.3ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 2, "updated_at" = '2015-11-10 23:49:11.543698' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (6.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '8a08c02d31' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:49:11 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "8a08c02d31"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:49:11 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (0.3ms)
+
+Sent mail to adiakritos@gmail.com (30012ms)
+Date: Tue, 10 Nov 2015 15:49:11 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564282778e7fe_c1a43ff578eea7e85233d@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=8a08c02d31" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=8a08c02d31</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=8a08c02d31&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=8a08c02d31&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30068ms
+
+Timeout::Error (execution expired):
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:50:45 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.2ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 3, "updated_at" = '2015-11-10 23:50:45.735061' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '2a2ca6cc82' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:50:45 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "2a2ca6cc82"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:50:45 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (0.3ms)
+
+Sent mail to adiakritos@gmail.com (30007ms)
+Date: Tue, 10 Nov 2015 15:50:45 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564282d5b7b46_c1a43ff578b8d5c85248a@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=2a2ca6cc82" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=2a2ca6cc82</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=2a2ca6cc82&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=2a2ca6cc82&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30027ms
+
+Timeout::Error (execution expired):
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.4ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (5047.4ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5046.8ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (8.3ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (12.1ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (22.4ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:52:52 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$rbYfLQkTO5YjjUzMVIKgbuvvnRL1YOLyS7R8tE1.FN9BDlUSVriJO"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:52:52 UTC +00:00]]
+  [1m[35m (6.4ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (10.5ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (24.1ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.9ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (21.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Tue, 10 Nov 2015 23:53:01 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$ZSF07SouSGxkNVWujxvjMOZ/69/PhXWaC17DB5S7kJJB4DXJDSnnu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Tue, 10 Nov 2015 23:53:01 UTC +00:00]]
+  [1m[35m (5.9ms)[0m  COMMIT
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:53:03 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (32.0ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Tue, 10 Nov 2015 23:53:03 UTC +00:00], ["updated_at", Tue, 10 Nov 2015 23:53:03 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-10 23:53:03.995857' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '609380a6b4' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:53:04 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "609380a6b4"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:53:04 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (3.8ms)
+
+Sent mail to adiakritos@gmail.com (21998ms)
+Date: Tue, 10 Nov 2015 15:53:04 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564283602665d_c31d3fd7129fb5e046518@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=609380a6b4" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=609380a6b4</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=609380a6b4&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=609380a6b4&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 401 Unauthorized in 22211ms
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 15:53:31 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 35ms (Views: 21.3ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:53:36 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 12ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 15:53:36 -0800
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1[0m
+  Rendered users/refer.html.erb within layouts/application (45.7ms)
+Completed 200 OK in 57ms (Views: 53.8ms | ActiveRecord: 1.3ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:54:14 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.3ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 2, "updated_at" = '2015-11-10 23:54:14.089429' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '1cc88b3c2f' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:54:14 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "1cc88b3c2f"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:54:14 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (1.0ms)
+
+Sent mail to adiakritos@gmail.com (30047ms)
+Date: Tue, 10 Nov 2015 15:54:14 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564283a63d4e9_c3583ff9161b3a10816dd@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=1cc88b3c2f" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=1cc88b3c2f</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=1cc88b3c2f&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=1cc88b3c2f&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30219ms
+
+Timeout::Error (execution expired):
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 15:55:12 -0800
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 72ms (Views: 25.4ms | ActiveRecord: 7.6ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 15:55:38 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.3ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 3, "updated_at" = '2015-11-10 23:55:38.355690' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (4.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '4e6c2af3be' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 10 Nov 2015 23:55:38 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "4e6c2af3be"], ["referrer_id", nil], ["updated_at", Tue, 10 Nov 2015 23:55:38 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (1.0ms)
+
+Sent mail to adiakritos@gmail.com (30050ms)
+Date: Tue, 10 Nov 2015 15:55:38 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564283fa7a40c_c3a03fe9fabed0609182b@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=4e6c2af3be" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=4e6c2af3be</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=4e6c2af3be&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=4e6c2af3be&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 30204ms
+
+Timeout::Error (execution expired):
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 16:01:46 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 53ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 16:01:46 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 16:01:54 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 16:02:20 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 16:02:20 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 46ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (5049.3ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5043.0ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (8.0ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (11.9ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (2.2ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.2ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.2ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 00:03:05 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$nWexCsnwaGObHWYlYv2YqeEYiyPcVeYqcWSDWXNCuqnrdnPPE8PCK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 00:03:05 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (6.9ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 00:03:39 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$92Rqy9xr5zI97m8rCZ4ktuPAwvIk.m6/Wz8r9wMVTXZvCWMi/m6xO"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 00:03:39 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 16:03:54 -0800
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 53ms (Views: 42.1ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 16:04:09 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.6ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 00:04:09 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 00:04:09 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 00:04:09.943310' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '83e0fcd49b' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 11 Nov 2015 00:04:09 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "83e0fcd49b"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 00:04:09 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (1.0ms)
+
+Sent mail to adiakritos@gmail.com (1099ms)
+Date: Tue, 10 Nov 2015 16:04:10 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564285fa11b71_c5af3fe003fe072c9360@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=83e0fcd49b" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=83e0fcd49b</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=83e0fcd49b&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=83e0fcd49b&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 1264ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 16:04:11 -0800
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1[0m
+  Rendered users/refer.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
+  [1m[36m (126.1ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+  [1m[35m (0.2ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (387.8ms)[0m  [1mCREATE DATABASE "prelaunchr" ENCODING = 'utf8'[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (2.1ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130312045541')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130126215239')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130127063936')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130127063939')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130127063940')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130227185712')[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.2ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 00:06:46 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$BE4MR694WXEP/Fwj42uxP.NpAVkwXAYN/VFZDe4YSusAzXZRnNwcW"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 00:06:46 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Connecting to database specified by database.yml
+  [1m[36m (7.2ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 00:07:02 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$gbthuVIEcmdOVA/eO66jZesLhhS1nWg1gvWLD6CTETWOOV89XVET6"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 00:07:02 UTC +00:00]]
+  [1m[35m (2.3ms)[0m  COMMIT
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 16:07:43 -0800
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  Rendered users/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 65ms (Views: 41.5ms | ActiveRecord: 7.8ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 16:10:48 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.1ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 00:10:48 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 00:10:48 UTC +00:00]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 00:10:48.851143' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '85dd53fd4b' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 11 Nov 2015 00:10:48 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "85dd53fd4b"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 00:10:48 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (2.9ms)
+
+Sent mail to adiakritos@gmail.com (49ms)
+Date: Tue, 10 Nov 2015 16:10:48 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <56428788f2445_c7303fd7f445dab087750@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns"http//www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <span style='font-size: 0; line-height: 0; height: 0; width: 0;'>You'll be first to know when we launch. Shaving is evolving. Tell your friends and shave for free.</span>
+    <table width="100%" cellspacing='0' cellpadding='0' border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; padding: 73px 15px; margin: 0;">
+        <tr>
+            <td align="center">
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 27px 0 27px;">
+                            <center>
+                                <img src="/assets/logo.jpg" alt="Harry's" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 22px 0 0;">
+                            <center>
+                                <img src="/assets/harrys-is-coming.jpg" alt="Harry's Is Live! We're launcing a new shave brand. You'll be the first to know." style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 60px 0 0;">
+                            <center>
+                                <img src="/assets/refer.jpg" alt="Refer Friends, Earn Rewards" style="display: block; margin: 0 auto; padding: 0; border: 0;">
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 20px 0 0;">
+                            <center>
+                                <a href="?ref=85dd53fd4b" style="font-family: 'Times', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none" target="_blank">?ref=85dd53fd4b</a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 45px 0 43px;">
+                            <table style="margin: 0 auto; padding: 0; width: 200px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; background: white; text-align: center;" width='200' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="80" align="right">
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=85dd53fd4b&title=Harrys" style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/facebook.jpg" alt="Share on Facebook" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="80">
+                                        <a href="http://twitter.com/share?url=?ref=85dd53fd4b&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." style="outline: 0; border: 0;" target="_blank">
+                                            <img src="/assets/twitter.jpg" alt="Share on Twitter" style="display: block; margin: 0; padding: 0; border: 0;">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; border-bottom: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                        <td width="615" height="2" style="width: 615px; height: 2px; background-color: #d8d8d8; font-size: 0; line-height: 0;" bgcolor="#d8d8d8">&nbsp;</td>
+                        <td width="18" height="2" style="width: 18px; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="margin: 0 auto; padding: 0; width: 651px; font-family: 'Helvetica Neue-Light', 'Helvetica Neue Light', 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif; font-size: 0; color: #CCC; font-weight: normal; border: 4px solid #995e5d; border-top: none; background: white; text-align: center;" width='651' cellspacing='0' cellpadding='0' align="center" bgcolor="#FFFFFF">
+                    <tr>
+                        <td style="padding: 18px 0 100px; font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 14px; letter-spacing: 0.05em; color: #6c6c6c; text-decoration: none">
+                            <center>
+                                <a href="http://www.harrys.com" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none">KursedApparel.com</a> | <a href="tel:2151234567" style="font-family: 'Brandon Grotesque', 'Helvetica Neue', 'Helvetica', 'Arial', serif; font-size: 13px; color: #6c6c6c; text-decoration: none"></a>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  [1m[36m (7.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 259ms (ActiveRecord: 29.6ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 16:10:49 -0800
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1[0m
+  Rendered users/refer.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:08:07 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 17:08:07 -0800
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1
+  Rendered users/refer.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
