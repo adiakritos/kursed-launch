@@ -75,12 +75,12 @@
      <h3 class="thanks center" style="font-family: 'Montserrat';text-align: center;">Thanks for Signing Up!</h3>
      <p style="font-family: 'Montserrat';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
 
-     <a href="<%= Rails.application.config.action_mailer.default_url_options || "" %>?ref=<%= @user.referral_code %>"><%= Rails.application.config.action_mailer.default_url_options || "" %>?ref=<%= @user.referral_code %></a>
+     <a href="http://prelaunch.kursedapparel.com?ref=<%= @user.referral_code %>">prelaunch.kursedapparel.com?ref=<%= @user.referral_code %></a>
 
      <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
      <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
-      <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="icon-fb.png" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"><img src="<%= Rails.application.config.action_mailer.default_url_options %>/assets/icon-fb.png" style="width: 60px;" alt="Share on Facebook"></a>
-      <a href="http://twitter.com/share?url=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(@twitter_message) %>" class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="icon-tw.png" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"><img src="<%= Rails.application.config.action_mailer.default_url_options %>/assets/icon-tw.png" style="width: 60px;" alt="Share on Twitter"></a>
+       <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="<%= Rails.root.join('app/assets/images/email/icon-fb.png') %>" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+      <a href="http://twitter.com/share?url=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(@twitter_message) %>" class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="<%= Rails.root.join('app/assets/images/email/icon-tw.png') %>" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
      </div>
 
      <p class="tag" style="font-family: 'Montserrat';margin: 20px 0 0 0;">Have fun!</p>

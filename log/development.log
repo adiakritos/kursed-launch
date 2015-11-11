@@ -30861,3 +30861,1112 @@ Processing by UsersController#refer as HTML
   Rendered users/refer.html.erb within layouts/application (2.0ms)
 Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.7ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (5050.6ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5045.9ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (9.0ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (11.7ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.8ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (21.2ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:10:14 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$Y8cT5WfOVvvUHWgwIWhPCOSgzKV5cN.8oxE0nfqejm/fgX2D2d5Ju"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:10:14 UTC +00:00]]
+  [1m[35m (6.2ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 17:10:21 -0800
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 66ms (Views: 21.2ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:10:25 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.4ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 01:10:25 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 01:10:25 UTC +00:00]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 01:10:25.661517' WHERE "ip_addresses"."id" = 1
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."referral_code" = 'd17f669e8e' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:10:25 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "d17f669e8e"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 01:10:25 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (0.8ms)
+
+Sent mail to adiakritos@gmail.com (57ms)
+Date: Tue, 10 Nov 2015 17:10:25 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <56429581cb260_e2943ffa29d009908969f@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html xmlns"http></html>/www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+
+    <style type="text/css">
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      .brand-name {
+        font-family: 'Cinzel Decorative';
+        font-size: 43px;
+        font-weight: lighter;
+      }
+
+      h3, h4, p {
+        font-family: 'Montserrat';
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .footer-info a {
+        font-size: 11px;
+        color: #B3B3B3;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+
+      .tag {
+        margin: 20px 0 0 0;
+      }
+
+      .signature {
+        margin: 0 0 20px 0;
+      }
+
+      .social-links-container {
+        width: 150px;
+        margin: 20px auto;
+      }
+
+      .social-links-container a img {
+        width: 60px;
+      }
+
+      .social-links-container .social-link {
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      .social-links-container .social-link:last-child {
+        margin-right: 0px;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrapper" style="width: 500px;margin: 0 auto;border: 2px solid black;padding: 10px;">
+     <h2 class="brand-name center" style="font-family: 'Cinzel Decorative';font-size: 43px;font-weight: lighter;text-align: center;">K</h2>
+     <h3 class="thanks center" style="font-family: 'Montserrat';text-align: center;">Thanks for Signing Up!</h3>
+     <p style="font-family: 'Montserrat';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
+
+     <a href="?ref=d17f669e8e">?ref=d17f669e8e</a>
+
+     <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
+     <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+      <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=d17f669e8e&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="icon-fb.png" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"><img src="/assets/icon-fb.png" style="width: 60px;" alt="Share on Facebook"></a>
+      <a href="http://twitter.com/share?url=?ref=d17f669e8e&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="icon-tw.png" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"><img src="/assets/icon-tw.png" style="width: 60px;" alt="Share on Twitter"></a>
+     </div>
+
+     <p class="tag" style="font-family: 'Montserrat';margin: 20px 0 0 0;">Have fun!</p>
+     <p class="signature" style="font-family: 'Montserrat';margin: 0 0 20px 0;">The Kursed Team</p>
+
+     <p class="footer-info" style="font-family: 'Montserrat';"><a href="http://kursedapparel.com" style="font-size: 11px;color: #B3B3B3;text-decoration: none;display: block;text-align: center;">KursedApparel.com</a></p>
+  </div>
+</body>
+
+  [1m[35m (7.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 232ms (ActiveRecord: 26.9ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 17:10:25 -0800
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1
+  Rendered users/refer.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 1.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (5044.9ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5044.2ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (10.6ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:12:28 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$q0hQXE65c2nuUphjFsEP1u/cdqOdxlnavDjMPw/vw7LOrmXQ3nqnG"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:12:28 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  COMMIT
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:12:35 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 01:12:35 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 01:12:35 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 01:12:35.197827' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '1812fb27b1' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 11 Nov 2015 01:12:35 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "1812fb27b1"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 01:12:35 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (0.8ms)
+
+Sent mail to adiakritos@gmail.com (12ms)
+Date: Tue, 10 Nov 2015 17:12:35 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564296033465e_e2943ffa29f1df84897cf@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html xmlns"http></html>/www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+
+    <style type="text/css">
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      .brand-name {
+        font-family: 'Cinzel Decorative';
+        font-size: 43px;
+        font-weight: lighter;
+      }
+
+      h3, h4, p {
+        font-family: 'Montserrat';
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .footer-info a {
+        font-size: 11px;
+        color: #B3B3B3;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+
+      .tag {
+        margin: 20px 0 0 0;
+      }
+
+      .signature {
+        margin: 0 0 20px 0;
+      }
+
+      .social-links-container {
+        width: 150px;
+        margin: 20px auto;
+      }
+
+      .social-links-container a img {
+        width: 60px;
+      }
+
+      .social-links-container .social-link {
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      .social-links-container .social-link:last-child {
+        margin-right: 0px;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrapper" style="width: 500px;margin: 0 auto;border: 2px solid black;padding: 10px;">
+     <h2 class="brand-name center" style="font-family: 'Cinzel Decorative';font-size: 43px;font-weight: lighter;text-align: center;">K</h2>
+     <h3 class="thanks center" style="font-family: 'Montserrat';text-align: center;">Thanks for Signing Up!</h3>
+     <p style="font-family: 'Montserrat';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
+
+     <a href="?ref=1812fb27b1">?ref=1812fb27b1</a>
+
+     <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
+     <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+      <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=1812fb27b1&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="/assets/icon-fb.png" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+      <a href="http://twitter.com/share?url=?ref=1812fb27b1&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="/assets/icon-tw.png" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+     </div>
+
+     <p class="tag" style="font-family: 'Montserrat';margin: 20px 0 0 0;">Have fun!</p>
+     <p class="signature" style="font-family: 'Montserrat';margin: 0 0 20px 0;">The Kursed Team</p>
+
+     <p class="footer-info" style="font-family: 'Montserrat';"><a href="http://kursedapparel.com" style="font-size: 11px;color: #B3B3B3;text-decoration: none;display: block;text-align: center;">KursedApparel.com</a></p>
+  </div>
+</body>
+
+  [1m[36m (7.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 45ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 17:12:35 -0800
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1[0m
+  Rendered users/refer.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
+  [1m[36m (5045.8ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5043.7ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (6.9ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.5ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:16:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$XY1gQ7sWS4DIKVhNp5Asr.rxq4m.UWdhyd96OexFSHwKj5E.Q9PA2"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:16:53 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-10 17:17:03 -0800
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:17:08 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.4ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 01:17:08 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 01:17:08 UTC +00:00]]
+  [1m[36m (4.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 01:17:08.802596' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = 'd9d5eae10b' LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 11 Nov 2015 01:17:08 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "d9d5eae10b"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 01:17:08 UTC +00:00]]
+ERROR: compiling _app_views_user_mailer_signup_email_html_erb___3075642634827031017_70343678704520 RAISED /Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+...utput_buffer.safe_concat('" alt="Share on Facebook" style="d...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+..." alt="Share on Facebook" style="display: block;margin: 0;pa...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected '<'
+...ng: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...f="http://twitter.com/share?url=');@output_buffer.append= ( ...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ':'
+...er.safe_concat('" class="social-link" target="_blank" style=...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...e_concat('" class="social-link" target="_blank" style="margi...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ss="social-link" target="_blank" style="margin-right: 0px;di...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+..." target="_blank" style="margin-right: 0px;display: inline-b...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...yle="margin-right: 0px;display: inline-block;"><img src="');...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tCONSTANT, expecting ')'
+...uffer.safe_concat('" alt="Share on Twitter" style="display: ...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+...hare on Twitter" style="display: block;margin: 0;padding: 0;...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+..." style="display: block;margin: 0;padding: 0;border: 0;width...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...splay: block;margin: 0;padding: 0;border: 0;width: 60px;"></...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...ck;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...: 0;padding: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+     <p class="tag" style="font-family: \'Monts...
+                  ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+...     <p class="tag" style="font-family: \'Montserrat\';margi...
+...                               ^
+Function body:           def _app_views_user_mailer_signup_email_html_erb___3075642634827031017_70343678704520(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "user_mailer/signup_email";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_concat('<html xmlns"http></html>/www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+
+    <style type="text/css">
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      .brand-name {
+        font-family: \'Cinzel Decorative\';
+        font-size: 43px;
+        font-weight: lighter;
+      }
+
+      h3, h4, p {
+        font-family: \'Montserrat\';
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .footer-info a {
+        font-size: 11px;
+        color: #B3B3B3;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+
+      .tag {
+        margin: 20px 0 0 0;
+      }
+
+      .signature {
+        margin: 0 0 20px 0;
+      }
+
+      .social-links-container {
+        width: 150px;
+        margin: 20px auto;
+      }
+
+      .social-links-container a img {
+        width: 60px;
+      }
+
+      .social-links-container .social-link {
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      .social-links-container .social-link:last-child {
+        margin-right: 0px;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrapper" style="width: 500px;margin: 0 auto;border: 2px solid black;padding: 10px;">
+     <h2 class="brand-name center" style="font-family: \'Cinzel Decorative\';font-size: 43px;font-weight: lighter;text-align: center;">K</h2>
+     <h3 class="thanks center" style="font-family: \'Montserrat\';text-align: center;">Thanks for Signing Up!</h3>
+     <p style="font-family: \'Montserrat\';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
+
+     <a href="prelaunch.kursedapparel.com?ref=');@output_buffer.append= ( @user.referral_code );@output_buffer.safe_concat('">prelaunch.kursedapparel.com?ref=');@output_buffer.append= ( @user.referral_code );@output_buffer.safe_concat('</a>
+
+     <p class="center" style="font-family: \'Montserrat\';text-align: center;">Share via:</p>
+     <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+       <a href="http://www.facebook.com/sharer/sharer.php?u=');@output_buffer.append= ( CGI::escape(Rails.application.config.action_mailer.default_url_options || "") );@output_buffer.safe_concat('?ref=');@output_buffer.append= ( CGI::escape(@user.referral_code) );@output_buffer.safe_concat('&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="');@output_buffer.append= ( Rails.root.join("app/assets/images/email/icon-fb.png) );@output_buffer.safe_concat('" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+      <a href="http://twitter.com/share?url=');@output_buffer.append= ( CGI::escape(Rails.application.config.action_mailer.default_url_options || "") );@output_buffer.safe_concat('?ref=');@output_buffer.append= ( CGI::escape(@user.referral_code) );@output_buffer.safe_concat('&text=');@output_buffer.append= ( CGI::escape(@twitter_message) );@output_buffer.safe_concat('" class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="');@output_buffer.append= ( Rails.root.join("app/assets/images/email/icon-fb.png) );@output_buffer.safe_concat('" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+     </div>
+
+     <p class="tag" style="font-family: \'Montserrat\';margin: 20px 0 0 0;">Have fun!</p>
+     <p class="signature" style="font-family: \'Montserrat\';margin: 0 0 20px 0;">The Kursed Team</p>
+
+     <p class="footer-info" style="font-family: \'Montserrat\';"><a href="http://kursedapparel.com" style="font-size: 11px;color: #B3B3B3;text-decoration: none;display: block;text-align: center;">KursedApparel.com</a></p>
+  </div>
+</body>
+');@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:297:in `module_eval'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:297:in `compile'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:244:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:232:in `compile!'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:144:in `block in render'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications.rb:125:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/template.rb:143:in `render'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications.rb:123:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:18:in `render'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/rendering.rb:110:in `_render_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:713:in `block in collect_responses_and_parts_order'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:724:in `each'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:724:in `each_template'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:709:in `collect_responses_and_parts_order'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:648:in `mail'
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/mailers/user_mailer.rb:10:in `signup_email'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/base.rb:121:in `process'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:458:in `process'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:452:in `initialize'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:439:in `new'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionmailer-3.2.11/lib/action_mailer/base.rb:439:in `method_missing'
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/models/user.rb:55:in `send_welcome_email'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:420:in `_run__2283587666304069477__create__3855601557207669278__callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_create_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/callbacks.rb:268:in `create'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/persistence.rb:348:in `create_or_update'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/callbacks.rb:264:in `block in create_or_update'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:425:in `_run__2283587666304069477__save__3855601557207669278__callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_save_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/callbacks.rb:264:in `create_or_update'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/persistence.rb:84:in `save'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/validations.rb:50:in `save'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:259:in `block (2 levels) in save'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:313:in `block in with_transaction_returning_status'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/connection_adapters/abstract/database_statements.rb:192:in `transaction'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:208:in `transaction'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:311:in `with_transaction_returning_status'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:259:in `block in save'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:270:in `rollback_active_record_state!'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/transactions.rb:258:in `save'
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/controllers/users_controller.rb:52:in `create'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:425:in `_run__3063064964016041383__process_action__1832688870707111944__callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/notifications.rb:123:in `instrument'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/base.rb:121:in `process'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal.rb:203:in `dispatch'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_controller/metal.rb:246:in `block in action'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:36:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:601:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/etag.rb:23:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/conditionalget.rb:35:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/flash.rb:242:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/query_cache.rb:64:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activerecord-3.2.11/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `_run__3649397609501909139__call__3855601557207669278__callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/rack/logger.rb:32:in `call_app'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/rack/logger.rb:16:in `block in call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/tagged_logging.rb:22:in `tagged'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/rack/logger.rb:16:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.2.11/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/static.rb:62:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/engine.rb:479:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/application.rb:223:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/railties-3.2.11/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+/Users/nicholasrestrepo/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/Users/nicholasrestrepo/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/Users/nicholasrestrepo/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+  Rendered user_mailer/signup_email.html.erb (36.3ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+...utput_buffer.safe_concat('" alt="Share on Facebook" style="d...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected tIDENTIFIER, expecting ')'
+..." alt="Share on Facebook" style="display: block;margin: 0;pa...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:82: syntax error, unexpected '<'
+...ng: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...f="http://twitter.com/share?url=');@output_buffer.append= ( ...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ':'
+...er.safe_concat('" class="social-link" target="_blank" style=...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...e_concat('" class="social-link" target="_blank" style="margi...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ss="social-link" target="_blank" style="margin-right: 0px;di...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+..." target="_blank" style="margin-right: 0px;display: inline-b...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...yle="margin-right: 0px;display: inline-block;"><img src="');...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tCONSTANT, expecting ')'
+...uffer.safe_concat('" alt="Share on Twitter" style="display: ...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected tIDENTIFIER, expecting ')'
+...hare on Twitter" style="display: block;margin: 0;padding: 0;...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+..." style="display: block;margin: 0;padding: 0;border: 0;width...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...splay: block;margin: 0;padding: 0;border: 0;width: 60px;"></...
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...ck;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:83: syntax error, unexpected ':', expecting ')'
+...: 0;padding: 0;border: 0;width: 60px;"></a>
+...                               ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+     <p class="tag" style="font-family: \'Monts...
+                  ^
+/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/views/user_mailer/signup_email.html.erb:86: syntax error, unexpected tIDENTIFIER, expecting ')'
+...     <p class="tag" style="font-family: \'Montserrat\';margi...
+...                               ^):
+    79: 
+    80:      <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
+    81:      <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+    82:        <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="<%= Rails.root.join("app/assets/images/email/icon-fb.png) %>" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+    83:       <a href="http://twitter.com/share?url=<%= CGI::escape(Rails.application.config.action_mailer.default_url_options || "") %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(@twitter_message) %>" class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="<%= Rails.root.join("app/assets/images/email/icon-fb.png) %>" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+    84:      </div>
+    85: 
+  app/mailers/user_mailer.rb:10:in `signup_email'
+  app/models/user.rb:55:in `send_welcome_email'
+  app/controllers/users_controller.rb:52:in `create'
+
+
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/nicholasrestrepo/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+Connecting to database specified by database.yml
+  [1m[36m (5045.6ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5043.3ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (3.6ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.8ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.2ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:18:05 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$s7V0DTeNNpID.U/J4X/68ekcozDvMNVdqGbGYdbj45Ea/Av1cZSPK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:18:05 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  COMMIT
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:18:13 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mIpAddress Load (0.3ms)[0m  [1mSELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 01:18:13 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 01:18:13 UTC +00:00]]
+  [1m[35m (4.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  UPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 01:18:13.972572' WHERE "ip_addresses"."id" = 1
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."referral_code" = 'c93cb7728f' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:18:13 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "c93cb7728f"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 01:18:13 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (0.9ms)
+
+Sent mail to adiakritos@gmail.com (13ms)
+Date: Tue, 10 Nov 2015 17:18:13 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <56429755f300a_e2943ffa28d0e48889864@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html xmlns"http></html>/www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+
+    <style type="text/css">
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      .brand-name {
+        font-family: 'Cinzel Decorative';
+        font-size: 43px;
+        font-weight: lighter;
+      }
+
+      h3, h4, p {
+        font-family: 'Montserrat';
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .footer-info a {
+        font-size: 11px;
+        color: #B3B3B3;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+
+      .tag {
+        margin: 20px 0 0 0;
+      }
+
+      .signature {
+        margin: 0 0 20px 0;
+      }
+
+      .social-links-container {
+        width: 150px;
+        margin: 20px auto;
+      }
+
+      .social-links-container a img {
+        width: 60px;
+      }
+
+      .social-links-container .social-link {
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      .social-links-container .social-link:last-child {
+        margin-right: 0px;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrapper" style="width: 500px;margin: 0 auto;border: 2px solid black;padding: 10px;">
+     <h2 class="brand-name center" style="font-family: 'Cinzel Decorative';font-size: 43px;font-weight: lighter;text-align: center;">K</h2>
+     <h3 class="thanks center" style="font-family: 'Montserrat';text-align: center;">Thanks for Signing Up!</h3>
+     <p style="font-family: 'Montserrat';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
+
+     <a href="prelaunch.kursedapparel.com?ref=c93cb7728f">prelaunch.kursedapparel.com?ref=c93cb7728f</a>
+
+     <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
+     <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+       <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=c93cb7728f&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/assets/images/email/icon-fb.png" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+      <a href="http://twitter.com/share?url=?ref=c93cb7728f&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/assets/images/email/icon-fb.png" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+     </div>
+
+     <p class="tag" style="font-family: 'Montserrat';margin: 20px 0 0 0;">Have fun!</p>
+     <p class="signature" style="font-family: 'Montserrat';margin: 0 0 20px 0;">The Kursed Team</p>
+
+     <p class="footer-info" style="font-family: 'Montserrat';"><a href="http://kursedapparel.com" style="font-size: 11px;color: #B3B3B3;text-decoration: none;display: block;text-align: center;">KursedApparel.com</a></p>
+  </div>
+</body>
+
+  [1m[35m (7.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 55ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 17:18:14 -0800
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1
+  Rendered users/refer.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
+  [1m[36m (5043.0ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5045.8ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (6.7ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.5ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:19:33 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$WPJhdM8E/piVZXUDNaGHluPnKoWkbMHDJvk7honRGlAJFUDHRkt4S"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:19:33 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  COMMIT
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-11-10 17:19:42 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo+99Rd59ofU8/hCHofriaSBKJXh57YrU08EIg/eNZQ=", "user"=>{"email"=>"adiakritos@gmail.com"}, "commit"=>"Reward Yourself"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["address", nil], ["count", 0], ["created_at", Wed, 11 Nov 2015 01:19:42 UTC +00:00], ["updated_at", Wed, 11 Nov 2015 01:19:42 UTC +00:00]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2015-11-11 01:19:42.895883' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '7c37687d57' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 11 Nov 2015 01:19:42 UTC +00:00], ["email", "adiakritos@gmail.com"], ["referral_code", "7c37687d57"], ["referrer_id", nil], ["updated_at", Wed, 11 Nov 2015 01:19:42 UTC +00:00]]
+  Rendered user_mailer/signup_email.html.erb (1.0ms)
+
+Sent mail to adiakritos@gmail.com (13ms)
+Date: Tue, 10 Nov 2015 17:19:42 -0800
+From: Kursed Apparel <info@kursedapparel.com>
+To: adiakritos@gmail.com
+Message-ID: <564297aedf1c6_e2943ffa28ca1f90899db@Nicholass-MacBook-Pro.local.mail>
+Subject: Thanks for signing up!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html xmlns"http></html>/www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+    </style>
+
+    <style type="text/css">
+      .wrapper {
+        width: 500px;
+        margin: 0 auto;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      .brand-name {
+        font-family: 'Cinzel Decorative';
+        font-size: 43px;
+        font-weight: lighter;
+      }
+
+      h3, h4, p {
+        font-family: 'Montserrat';
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .footer-info a {
+        font-size: 11px;
+        color: #B3B3B3;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+
+      .tag {
+        margin: 20px 0 0 0;
+      }
+
+      .signature {
+        margin: 0 0 20px 0;
+      }
+
+      .social-links-container {
+        width: 150px;
+        margin: 20px auto;
+      }
+
+      .social-links-container a img {
+        width: 60px;
+      }
+
+      .social-links-container .social-link {
+        margin-right: 20px;
+        display: inline-block;
+      }
+
+      .social-links-container .social-link:last-child {
+        margin-right: 0px;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrapper" style="width: 500px;margin: 0 auto;border: 2px solid black;padding: 10px;">
+     <h2 class="brand-name center" style="font-family: 'Cinzel Decorative';font-size: 43px;font-weight: lighter;text-align: center;">K</h2>
+     <h3 class="thanks center" style="font-family: 'Montserrat';text-align: center;">Thanks for Signing Up!</h3>
+     <p style="font-family: 'Montserrat';">Here is your unique url. Share with with everyone you know, the more people who sign up the more free stuff you get!</p>
+
+     <a href="http://prelaunch.kursedapparel.com?ref=7c37687d57">prelaunch.kursedapparel.com?ref=7c37687d57</a>
+
+     <p class="center" style="font-family: 'Montserrat';text-align: center;">Share via:</p>
+     <div class="social-links-container group" style="width: 150px;margin: 20px auto;">
+       <a href="http://www.facebook.com/sharer/sharer.php?u=?ref=7c37687d57&title=Kursed" class="social-link" target="_blank" style="margin-right: 20px;display: inline-block;"><img src="/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/assets/images/email/icon-fb.png" alt="Share on Facebook" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+      <a href="http://twitter.com/share?url=?ref=7c37687d57&text=Stoked+on+this+new+%40Kursedapparel+collection%21+I%E2%80%99m+going+to+be+wearing+streetwear+for+free." class="social-link" target="_blank" style="margin-right: 0px;display: inline-block;"><img src="/Users/nicholasrestrepo/Documents/Clients/Ronnie/kursed-launch/app/assets/images/email/icon-tw.png" alt="Share on Twitter" style="display: block;margin: 0;padding: 0;border: 0;width: 60px;"></a>
+     </div>
+
+     <p class="tag" style="font-family: 'Montserrat';margin: 20px 0 0 0;">Have fun!</p>
+     <p class="signature" style="font-family: 'Montserrat';margin: 0 0 20px 0;">The Kursed Team</p>
+
+     <p class="footer-info" style="font-family: 'Montserrat';"><a href="http://kursedapparel.com" style="font-size: 11px;color: #B3B3B3;text-decoration: none;display: block;text-align: center;">KursedApparel.com</a></p>
+  </div>
+</body>
+
+  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 55ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2015-11-10 17:19:42 -0800
+Processing by UsersController#refer as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1[0m
+  Rendered users/refer.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
+  [1m[36m (5040.8ms)[0m  [1mDROP DATABASE IF EXISTS "prelaunchr"[0m
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[35m (5037.9ms)[0m  DROP DATABASE IF EXISTS "prelaunchr"
+PG::Error: ERROR:  database "prelaunchr" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+: DROP DATABASE IF EXISTS "prelaunchr"
+  [1m[36m (5.1ms)[0m  [1mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "active_admin_comments" ("id" serial primary key, "resource_id" character varying(255) NOT NULL, "resource_type" character varying(255) NOT NULL, "author_id" integer, "author_type" character varying(255), "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "namespace" character varying(255)) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "admin_users"
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying(255), "queue" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "ip_addresses"[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "ip_addresses" ("id" serial primary key, "address" character varying(255), "count" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying(255), "referral_code" character varying(255), "referrer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.6ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'adiakritos@gmail.com' LIMIT 1
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["created_at", Wed, 11 Nov 2015 01:20:45 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "adiakritos@gmail.com"], ["encrypted_password", "$2a$10$ENgT1bk3aEXEmSstY.J7nO8RmidmuiW1egXnewcefL4gE8OtD.zVu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 11 Nov 2015 01:20:45 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
